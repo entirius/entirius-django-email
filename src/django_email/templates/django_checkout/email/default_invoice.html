@@ -1,0 +1,62 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="Content-Type" content="text/html charset=UTF-8"/>
+    <title>{{ subject }}</title>
+    <style type="text/css">
+      a { color: {{brand_text_clr}} !important; text-decoration: none !important; }
+      .content-area p { margin: 0 !important; }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; width: 100%; background-color: {{main_bgc}};">
+
+  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" bgcolor="{{main_bgc}}">
+    <tr>
+      <td align="center" valign="top">
+
+        {% include 'base/header.html' %}
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" style="max-width: 600px;">
+          <tr>
+            <td class="content-area" bgcolor="{{body_bgc}}" style="background-color: {{body_bgc}};">
+
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                <tr>
+                  <td style="padding: 30px 25px 20px 25px; font-size: 18px; line-height: 28px; font-weight: bold; text-align: center; color: {{main_text_clr}}; font-family: {{font_family}};">
+                    {% autoescape off %}{{ intro|safe }}{% endautoescape %}
+                  </td>
+                </tr>
+              </table>
+
+              {% if body %}
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                <tr>
+                  <td style="padding: 10px 25px 20px 25px; font-size: 14px; line-height: 22px; color: {{main_text_clr}}; font-family: {{font_family}};">
+                    {% autoescape off %}{{ body|safe }}{% endautoescape %}
+                  </td>
+                </tr>
+              </table>
+              {% endif %}
+
+              {% if footer %}
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                <tr>
+                  <td style="padding: 20px 25px 30px 25px; font-size: 12px; line-height: 18px; color: {{main_text_clr}}; font-family: {{font_family}};">
+                    {{ footer|safe }}
+                  </td>
+                </tr>
+              </table>
+              {% endif %}
+
+            </td>
+          </tr>
+        </table>
+
+        {% include 'base/footer.html' %}
+        </td>
+    </tr>
+  </table>
+</body>
+</html>

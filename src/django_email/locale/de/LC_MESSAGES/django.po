@@ -1,0 +1,185 @@
+# German translations for django-email package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-14 19:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: German <de@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: models/accounts/new_account.py:26
+msgid "WelcomeAccountMessage"
+msgstr "Willkommen"
+
+#: models/accounts/new_account.py:31
+msgid "ConfirmRequestMessage"
+msgstr "Bitte bestätigen Sie Ihre Kontoerstellung, indem Sie auf die Schaltfläche unten klicken:"
+
+#: models/accounts/new_account.py:32
+msgid "ThankYouMessage"
+msgstr "vielen Dank für Ihre Registrierung in unserem Online-Shop."
+
+#: models/accounts/new_account.py:33
+msgid "IgnoreAccountMessage"
+msgstr "Wenn Sie kein Konto in unserem Shop erstellt haben, ignorieren Sie bitte diese Nachricht."
+
+#: models/accounts/reset_password.py:24
+msgid "WelcomePasswdMessage"
+msgstr ""
+"Hallo, wir haben eine Anfrage zur Passwortänderung für Ihr Konto erhalten. "
+"Wenn Sie diese Änderung angefordert haben, legen Sie bitte hier Ihr neues Passwort fest."
+
+#: models/accounts/reset_password.py:25
+msgid "SetPasswdMessage"
+msgstr "Neues Passwort festlegen"
+
+#: models/accounts/reset_password.py:26
+msgid "IgnorePasswdMessage"
+msgstr ""
+"Wenn Sie Ihr Passwort nicht ändern möchten, können Sie diese Nachricht "
+"ignorieren und Ihr Passwort bleibt unverändert."
+
+#: models/allegro/virtual_product.py:34 models/checkout/virtual_product.py:34
+msgid "WelcomeOrderMessage"
+msgstr "Hallo, "
+
+#: models/allegro/virtual_product.py:35 models/checkout/virtual_product.py:35
+msgid "ThankYouOrderMessage"
+msgstr "Produkte für Ihre Bestellung"
+
+#: models/allegro/virtual_product.py:41 models/checkout/virtual_product.py:41
+msgid "Products"
+msgstr "Produkte"
+
+#: models/allegro/virtual_product.py:42 models/checkout/virtual_product.py:42
+msgid "Instructions"
+msgstr "Anleitung"
+
+#: models/allegro/virtual_product.py:43 models/checkout/virtual_product.py:43
+msgid "IgnoreOrderMessage"
+msgstr "Wenn dies nicht Ihre Bestellung ist, ignorieren Sie bitte diese E-Mail."
+
+#: models/loyalty/coupon_confirmation.py:27
+msgid "WelcomeLoyaltyMessage"
+msgstr "Willkommen"
+
+#: models/loyalty/coupon_confirmation.py:32
+msgid "ThankYouLoyaltyMessage"
+msgstr "vielen Dank für die Nutzung des Gutscheins"
+
+#: models/loyalty/coupon_confirmation.py:33
+msgid "ConfirmCouponMessage"
+msgstr "Hier ist Ihr Rabattgutschein"
+
+#: models/loyalty/coupon_confirmation.py:34
+msgid "CouponButtonMessage"
+msgstr "Gutschein einlösen"
+
+#: models/loyalty/coupon_confirmation.py:35
+msgid "CouponIgnoreMessage"
+msgstr ""
+"Wenn Sie nicht für die Nutzung des Gutscheins verantwortlich sind, "
+"ignorieren Sie bitte diese Nachricht."
+
+#: models/returns/return_confirmation.py:31
+msgid "WelcomeReturnMessage"
+msgstr "Hallo"
+
+#: models/returns/return_confirmation.py:32
+msgid "ReturnMessage1"
+msgstr "Wir haben Ihre Anfrage mit der Nummer erhalten:"
+
+#: models/returns/return_confirmation.py:33
+msgid "ReturnMessage2"
+msgstr "bezüglich der Rücksendung von Produkten aus unserem Shop mit der Bestellnummer:"
+
+#: models/returns/return_confirmation.py:43
+msgid "Comment"
+msgstr "Kommentar zur Rücksendung:"
+
+#: models/returns/return_confirmation.py:44
+msgid "PrintMessage"
+msgstr "Drucken Sie den Antrag aus und legen Sie ihn der Rücksendung bei."
+
+#: models/returns/return_confirmation.py:45
+msgid "ReturnMessage3"
+msgstr ""
+"Wenn Sie die Rückgabemethode 'Bitte Abholung vereinbaren' gewählt haben, "
+"werden wir Sie in einer separaten Nachricht kontaktieren."
+
+#: service/accounts/new_account.py:21
+msgid "Signup Confirmation"
+msgstr "Registrierungsbestätigung"
+
+#: service/accounts/reset_password.py:21
+msgid "Password Reset Confirmation"
+msgstr "Passwort-Zurücksetzungsbestätigung"
+
+#: service/allegro/virtual_product.py:34
+msgid "Allegro Order Complete"
+msgstr "Bestellung abgeschlossen"
+
+#: service/checkout/virtual_product.py:34
+msgid "Order Complete"
+msgstr "Bestellung abgeschlossen"
+
+#: service/loyalty/coupon_confirmation.py:23
+msgid "Coupon Confirmation"
+msgstr "Gutscheinbestätigung"
+
+#: service/returns/return_confirmation.py:24
+msgid "Return Confirmation"
+msgstr "Rücksendungsbestätigung"
+
+#: templates/base/footer.html:7
+msgid "FooterSignatureCopy1"
+msgstr "Mit freundlichen Grüßen,"
+
+#: templates/base/footer.html:8
+msgid "FooterSignatureCopy2"
+msgstr "Team"
+
+#: templates/base/footer.html:18
+msgid "FooterSocialsCopy"
+msgstr "Besuchen Sie uns auf:"
+
+#: templates/base/footer.html:27
+msgid "FooterAutomaticCopy"
+msgstr "Dies ist eine automatische Nachricht. Bitte antworten Sie nicht darauf."
+
+#: templates/base/header.html:11
+msgid "HeaderQuestion"
+msgstr "Haben Sie Fragen? Schreiben Sie an"
+
+#: templates/base/header.html:17
+msgid "DownloadImages"
+msgstr "Laden Sie die Grafik herunter, um die vollständige Nachricht zu sehen"
+
+#: templates/django_returns/email/default_return.html:114
+#: templates/django_returns/email/default_return.txt:11
+msgid "AddressMessage"
+msgstr "Lieferadresse:"
+
+#: models/accounts/new_account.py:31
+msgid "AnnounceMessage"
+msgstr "Wir freuen uns, Sie in unserem Online-Shop begrüßen zu dürfen."
+
+#: templates/django_contact_forms/email/contact_form_client_copy.html
+#: templates/django_contact_forms/email/contact_form_client_copy.txt
+msgid "Thank you for contacting us"
+msgstr "Danke für Ihre Kontaktaufnahme"
+
+#: templates/django_contact_forms/email/contact_form_client_copy.html
+#: templates/django_contact_forms/email/contact_form_client_copy.txt
+msgid "We have received your message and will get back to you soon. Below is a copy for your records."
+msgstr "Wir haben Ihre Nachricht erhalten und melden uns in Kürze. Nachfolgend eine Kopie für Ihre Unterlagen."

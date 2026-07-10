@@ -1,0 +1,15 @@
+{% load i18n %}
+
+{{ welcome }}
+
+{{ announce }}
+
+{% if confirm_button %}
+    {{ confirm_button }}
+{% else %}
+    {{ confirmation_link }}
+{% endif %}
+
+{{ thank_you}}
+
+{{ help }}

@@ -1,0 +1,7 @@
+{{ subject }}
+
+{{ intro }}
+
+{{ body }}
+
+{{ footer }}

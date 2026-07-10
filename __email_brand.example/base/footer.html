@@ -1,0 +1,59 @@
+<!-- CUSTOMIZE: Email footer — per-client branding -->
+{% load i18n %}
+
+<table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" bgcolor="{{main_bgc}}" style="background-color:{{main_bgc}};">
+  <tbody>
+    <tr>
+      <td align="center">
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 600px;">
+          <tbody>
+            <tr>
+              <td style="padding: 25px; font-family: {{font_family|default:"'Inter', sans-serif"}}; color: {{main_text_clr}};">
+
+                <!-- CUSTOMIZE: Signature -->
+                <p style="margin: 0; border-top: 1px solid {{brand_text_clr}}; padding-top: 16px; font-weight: normal; font-size: 14px; line-height: 20px;">{% trans 'FooterSignatureCopy1' %}</p>
+
+                <p style="margin: 0; font-weight: 600; font-size: 14px; line-height: 20px;">
+                    {% trans 'FooterSignatureCopy2' %}
+                    {% if footer_link_brand %}
+                    <a href="{{footer_link_brand}}" target="_blank" style="color: {{brand_text_clr}}; text-decoration: underline;">{{footer_name_brand|default:""}}</a>
+                    {% elif footer_name_brand %}
+                    {{footer_name_brand}}
+                    {% endif %}
+                </p>
+
+                <!-- CUSTOMIZE: Social links -->
+                {% if footer_link_fb or footer_link_ig or footer_link_yt or footer_link_x or footer_link_tiktok %}
+                <p style="margin: 0; padding-top: 16px; padding-bottom: 20px; font-weight: normal; font-size: 14px; line-height: 20px;">
+                    {% trans 'FooterSocialsCopy' %}
+                    {% spaceless %}
+                    {% if footer_link_fb %}<a href="{{footer_link_fb}}" target="_blank" style="color: {{brand_text_clr}}; text-decoration: underline;">Facebook</a>{% endif %}{% if footer_link_ig %}{% if footer_link_fb %} &middot; {% endif %}<a href="{{footer_link_ig}}" target="_blank" style="color: {{brand_text_clr}}; text-decoration: underline;">Instagram</a>{% endif %}{% if footer_link_yt %}{% if footer_link_fb or footer_link_ig %} &middot; {% endif %}<a href="{{footer_link_yt}}" target="_blank" style="color: {{brand_text_clr}}; text-decoration: underline;">YouTube</a>{% endif %}{% if footer_link_x %}{% if footer_link_fb or footer_link_ig or footer_link_yt %} &middot; {% endif %}<a href="{{footer_link_x}}" target="_blank" style="color: {{brand_text_clr}}; text-decoration: underline;">X</a>{% endif %}{% if footer_link_tiktok %}{% if footer_link_fb or footer_link_ig or footer_link_yt or footer_link_x %} &middot; {% endif %}<a href="{{footer_link_tiktok}}" target="_blank" style="color: {{brand_text_clr}}; text-decoration: underline;">TikTok</a>{% endif %}
+                    {% endspaceless %}
+                </p>
+                {% endif %}
+
+                <!-- CUSTOMIZE: Legal / footer copy -->
+                {% if footer_copy %}
+                <p style="margin: 0; font-weight: normal; font-size: 11px; line-height: 16px;">
+                  {% autoescape off %}
+                  {{ footer_copy|safe }}
+                  {% endautoescape %}
+                </p>
+                {% endif %}
+
+                {% if unsubscribe_url %}
+                <p style="margin: 0; font-weight: normal; font-size: 11px; line-height: 16px; padding-top: 10px;">
+                    <a href="{{unsubscribe_url}}" style="color: {{brand_text_clr}}; text-decoration: underline;">{% trans 'Unsubscribe' %}</a>
+                </p>
+                {% endif %}
+
+                <p style="margin: 0; font-weight: normal; font-size: 11px; line-height: 16px; padding-top: 10px;">{% trans 'FooterAutomaticCopy' %}</p>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>

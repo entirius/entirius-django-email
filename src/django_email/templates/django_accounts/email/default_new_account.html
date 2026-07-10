@@ -1,0 +1,97 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="x-apple-disable-message-reformatting"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html charset=UTF-8"/>
+    <title>{{ subject }}</title>
+    <style type="text/css">
+      .content-area p {
+        margin: 0;
+      }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; width: 100%; background-color: {{main_bgc}};">
+
+  <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" bgcolor="{{main_bgc}}">
+    <tr>
+      <td align="center" valign="top">
+
+        {% include 'base/header.html' %}
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" style="max-width: 600px;">
+          <tr>
+            <td class="content-area" bgcolor="{{body_bgc}}" style="background-color: {{body_bgc}}; padding: 20px 0;">
+            
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                <tr>
+                  <td style="padding: 10px 25px; font-size: 18px; line-height: 28px; font-weight: bold; text-align: center; color: {{main_text_clr}}; font-family: {{font_family}};">
+                    {{ welcome|linebreaks }}
+                  </td>
+                </tr>
+              </table>
+
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                <tr>
+                  <td style="padding: 10px 25px; font-size: 14px; line-height: 22px; text-align: center; color: {{main_text_clr}}; font-family: {{font_family}};">
+                     {% autoescape off %}
+                     {{ announce|linebreaks|safe }}
+                      {% endautoescape %}
+                  </td>
+                </tr>
+              </table>
+
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                <tr>
+                  <td style="padding: 10px 25px;">
+                    <table align="center" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                      <tr>
+                        <td align="center" bgcolor="{{brand_text_clr}}" style="background-color: {{brand_text_clr}}; border-radius: 4px;">
+                          <a href="{{ confirmation_link }}" target="_blank" style="display: block; padding: 12px 24px; font-family: {{font_family}}; font-size: 14px; font-weight: bold; text-transform: uppercase; text-decoration: none; color: #FFFFFF;">
+                            <span style="color: #FFFFFF;">
+                              {% if confirm_button %}
+                                {{ confirm_button }}
+                              {% else %}
+                                {{ confirmation_link }}
+                              {% endif %}
+                            </span>
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                <tr>
+                  <td style="padding: 10px 25px; font-size: 14px; line-height: 22px; text-align: center; color: {{main_text_clr}}; font-family: {{font_family}};">
+                    {% autoescape off %}
+                   {{ thank_you|linebreaks|safe }}
+                   {% endautoescape %}
+                  </td>
+                </tr>
+              </table>
+
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                <tr>
+                  <td style="padding: 10px 25px; font-size: 14px; line-height: 22px; text-align: center; color: {{main_text_clr}}; font-family: {{font_family}};">
+                      {% autoescape off %}
+                      {{ help|linebreaks|safe }}
+                      {% endautoescape %}
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+        </table>
+
+        {% include 'base/footer.html' %}
+        </td>
+    </tr>
+  </table>
+</body>
+</html>

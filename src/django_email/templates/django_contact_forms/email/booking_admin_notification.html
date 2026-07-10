@@ -1,0 +1,95 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:'en' }}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>{{ subject|default:_("New booking") }}</title>
+</head>
+<body style="margin: 0; padding: 0; width: 100%; background-color: {{main_bgc}};">
+
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" bgcolor="{{main_bgc}}">
+  <tr>
+    <td align="center" valign="top">
+
+      {% include 'base/header.html' %}
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" style="max-width: 600px;">
+        <tr>
+          <td bgcolor="{{body_bgc}}" style="background-color: {{body_bgc}}; padding: 24px; font-family: {{font_family|default:"'Inter', sans-serif"}}; color: {{main_text_clr}};">
+
+            <h2 style="margin: 0 0 16px 0; font-size: 22px; color: {{brand_text_clr}};">
+              {% if header_title %}{{ header_title }}{% else %}{% trans "New booking" %}{% endif %}
+            </h2>
+
+            {% if intro_copy %}
+              <p style="margin: 0 0 16px 0; font-size: 14px; line-height: 22px;">{{ intro_copy|linebreaks }}</p>
+            {% else %}
+              <p style="margin: 0 0 16px 0; font-size: 14px; line-height: 22px;">
+                {% trans "A new booking has been made on your site." %}
+              </p>
+            {% endif %}
+
+            <table width="100%" cellspacing="0" cellpadding="8" border="0" role="presentation" style="border-collapse: collapse; margin: 16px 0;">
+              <tr>
+                <th align="left" bgcolor="{{main_bgc}}" style="width: 35%; font-size: 14px; background-color: {{main_bgc}}; border: 1px solid {{brand_text_clr}};">{% if label_datetime %}{{ label_datetime }}{% else %}{% trans "Date & time" %}{% endif %}</th>
+                <td style="border: 1px solid {{brand_text_clr}}; font-size: 14px;">
+                  {% if meeting_start %}
+                    {{ meeting_start|date:"l, j F Y" }}<br>
+                    {{ meeting_start|date:"H:i" }} – {{ meeting_end|date:"H:i" }} ({{ timezone }})
+                  {% endif %}
+                </td>
+              </tr>
+              {% if booker_name %}
+              <tr>
+                <th align="left" bgcolor="{{main_bgc}}" style="font-size: 14px; background-color: {{main_bgc}}; border: 1px solid {{brand_text_clr}};">{% if label_name %}{{ label_name }}{% else %}{% trans "Name" %}{% endif %}</th>
+                <td style="border: 1px solid {{brand_text_clr}}; font-size: 14px;">{{ booker_name }}</td>
+              </tr>
+              {% endif %}
+              <tr>
+                <th align="left" bgcolor="{{main_bgc}}" style="font-size: 14px; background-color: {{main_bgc}}; border: 1px solid {{brand_text_clr}};">{% if label_email %}{{ label_email }}{% else %}{% trans "Email" %}{% endif %}</th>
+                <td style="border: 1px solid {{brand_text_clr}}; font-size: 14px;">{{ booker_email }}</td>
+              </tr>
+              {% if booker_phone %}
+              <tr>
+                <th align="left" bgcolor="{{main_bgc}}" style="font-size: 14px; background-color: {{main_bgc}}; border: 1px solid {{brand_text_clr}};">{% if label_phone %}{{ label_phone }}{% else %}{% trans "Phone" %}{% endif %}</th>
+                <td style="border: 1px solid {{brand_text_clr}}; font-size: 14px;">{{ booker_phone }}</td>
+              </tr>
+              {% endif %}
+              {% if booker_company %}
+              <tr>
+                <th align="left" bgcolor="{{main_bgc}}" style="font-size: 14px; background-color: {{main_bgc}}; border: 1px solid {{brand_text_clr}};">{% if label_company %}{{ label_company }}{% else %}{% trans "Company" %}{% endif %}</th>
+                <td style="border: 1px solid {{brand_text_clr}}; font-size: 14px;">{{ booker_company }}</td>
+              </tr>
+              {% endif %}
+              {% if booker_message %}
+              <tr>
+                <th align="left" bgcolor="{{main_bgc}}" style="font-size: 14px; background-color: {{main_bgc}}; border: 1px solid {{brand_text_clr}};">{% if label_message %}{{ label_message }}{% else %}{% trans "Message" %}{% endif %}</th>
+                <td style="border: 1px solid {{brand_text_clr}}; font-size: 14px;">{{ booker_message|linebreaks }}</td>
+              </tr>
+              {% endif %}
+            </table>
+
+            {% if meet_link %}
+              <p style="margin: 16px 0 8px 0; font-size: 14px;">
+                <strong>{% if label_video %}{{ label_video }}{% else %}{% trans "Video call" %}{% endif %}:</strong>
+                <a href="{{ meet_link }}" style="color: {{brand_text_clr}};">{{ meet_link }}</a>
+              </p>
+            {% endif %}
+
+            {% if closing_copy %}
+              <p style="margin: 16px 0 0 0; font-size: 14px; line-height: 22px;">{{ closing_copy|linebreaks }}</p>
+            {% endif %}
+
+          </td>
+        </tr>
+      </table>
+
+      {% include 'base/footer.html' %}
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

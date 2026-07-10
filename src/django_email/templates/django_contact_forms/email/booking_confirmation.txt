@@ -1,0 +1,16 @@
+{% load i18n %}
+{% trans "Your booking is confirmed" %}
+
+{% if booker_name %}{% blocktrans with name=booker_name %}Hi {{ name }},{% endblocktrans %}{% else %}{% trans "Hi," %}{% endif %}
+
+{% if intro_copy %}{{ intro_copy }}{% else %}{% trans "We've reserved your slot. Details below." %}{% endif %}
+
+{% trans "Date & time" %}: {% if meeting_start %}{{ meeting_start|date:"l, j F Y" }} {{ meeting_start|date:"H:i" }} - {{ meeting_end|date:"H:i" }} ({{ timezone }}){% endif %}
+{% trans "Email" %}: {{ booker_email }}{% if booker_phone %}
+{% trans "Phone" %}: {{ booker_phone }}{% endif %}{% if booker_company %}
+{% trans "Company" %}: {{ booker_company }}{% endif %}{% if booker_message %}
+{% trans "Message" %}: {{ booker_message }}{% endif %}{% if meet_link %}
+
+{% trans "Video call" %}: {{ meet_link }}{% endif %}
+
+{% if closing_copy %}{{ closing_copy }}{% else %}{% trans "If the time no longer works for you, just reply to this email and we'll reschedule." %}{% endif %}

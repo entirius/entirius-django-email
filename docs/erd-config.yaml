@@ -1,0 +1,18 @@
+app_label: django_email
+groups:
+  - name: channel-config
+    title: "Channel Configuration"
+    models:
+      - Channel
+      - LangChannelConfig
+
+  - name: email-templates
+    title: "Email Templates"
+    models:
+      - AccountsNewAccount
+      - AccountsResetPassword
+      - CheckoutVirtualProduct
+      - LoyaltyCouponConfirmation
+      - ReturnsReturnConfirmation
+      - AllegroVirtualProduct
+      - AgreementsNewsletterSignup

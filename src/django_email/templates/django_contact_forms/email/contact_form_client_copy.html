@@ -1,0 +1,75 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:'en' }}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>{{ subject|default:_("Thank you for contacting us") }}</title>
+</head>
+<body style="margin: 0; padding: 0; width: 100%; background-color: {{main_bgc}};">
+
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" bgcolor="{{main_bgc}}">
+  <tr>
+    <td align="center" valign="top">
+
+      {% include 'base/header.html' %}
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation" style="max-width: 600px;">
+        <tr>
+          <td bgcolor="{{body_bgc}}" style="background-color: {{body_bgc}}; padding: 24px; font-family: {{font_family|default:"'Inter', sans-serif"}}; color: {{main_text_clr}};">
+
+            <h2 style="margin: 0 0 16px 0; font-size: 22px; color: {{brand_text_clr}};">
+              {% if header_title %}{{ header_title }}{% else %}{% trans "Thank you for contacting us" %}{% endif %}
+            </h2>
+
+            <p style="margin: 0 0 16px 0; font-size: 14px; line-height: 22px;">
+              {% if intro_copy %}{{ intro_copy|linebreaks }}{% else %}{% trans "We have received your message and will get back to you soon. Below is a copy for your records." %}{% endif %}
+            </p>
+
+            <table width="100%" cellspacing="0" cellpadding="8" border="0" role="presentation" style="border-collapse: collapse; margin: 16px 0;">
+              <tr>
+                <th align="left" bgcolor="{{main_bgc}}" style="width: 35%; font-size: 14px; background-color: {{main_bgc}}; border: 1px solid {{brand_text_clr}};">{% if label_email %}{{ label_email }}{% else %}{% trans "Email" %}{% endif %}</th>
+                <td style="border: 1px solid {{brand_text_clr}}; font-size: 14px;">{{ form_email }}</td>
+              </tr>
+              {% if form_type %}
+              <tr>
+                <th align="left" bgcolor="{{main_bgc}}" style="font-size: 14px; background-color: {{main_bgc}}; border: 1px solid {{brand_text_clr}};">{% if label_type %}{{ label_type }}{% else %}{% trans "Type" %}{% endif %}</th>
+                <td style="border: 1px solid {{brand_text_clr}}; font-size: 14px;">{{ form_type }}</td>
+              </tr>
+              {% endif %}
+              {% if form_slug %}
+              <tr>
+                <th align="left" bgcolor="{{main_bgc}}" style="font-size: 14px; background-color: {{main_bgc}}; border: 1px solid {{brand_text_clr}};">{% if label_form %}{{ label_form }}{% else %}{% trans "Form" %}{% endif %}</th>
+                <td style="border: 1px solid {{brand_text_clr}}; font-size: 14px;">{{ form_slug }}</td>
+              </tr>
+              {% endif %}
+              {% if form_code %}
+              <tr>
+                <th align="left" bgcolor="{{main_bgc}}" style="font-size: 14px; background-color: {{main_bgc}}; border: 1px solid {{brand_text_clr}};">{% if label_code %}{{ label_code }}{% else %}{% trans "Code" %}{% endif %}</th>
+                <td style="border: 1px solid {{brand_text_clr}}; font-size: 14px;">{{ form_code }}</td>
+              </tr>
+              {% endif %}
+              {% if form_body %}
+              <tr>
+                <th align="left" bgcolor="{{main_bgc}}" style="font-size: 14px; background-color: {{main_bgc}}; border: 1px solid {{brand_text_clr}}; vertical-align: top;">{% if label_body %}{{ label_body }}{% else %}{% trans "Body" %}{% endif %}</th>
+                <td style="border: 1px solid {{brand_text_clr}}; font-size: 14px;"><pre style="margin:0; white-space: pre-wrap; word-break: break-word;">{{ form_body }}</pre></td>
+              </tr>
+              {% endif %}
+            </table>
+
+            {% if closing_copy %}
+              <p style="margin: 16px 0 0 0; font-size: 14px; line-height: 22px;">{{ closing_copy|linebreaks }}</p>
+            {% endif %}
+
+          </td>
+        </tr>
+      </table>
+
+      {% include 'base/footer.html' %}
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,308 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-14 19:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
+"(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
+"n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#: models/accounts/new_account.py:26
+msgid "WelcomeAccountMessage"
+msgstr "Witaj"
+
+#: models/accounts/new_account.py:31
+msgid "AnnounceMessage"
+msgstr "Cieszymy się, że dołączasz do naszego sklepu internetowego."
+
+#: models/accounts/new_account.py:31
+msgid "ConfirmRequestMessage"
+msgstr "Prosimy o potwierdzenie założenia konta poprzez kliknięcie w przycisk:"
+
+#: models/accounts/new_account.py:32
+msgid "ThankYouMessage"
+msgstr "dziękujemy za rejestrację w e-sklepie."
+
+#: models/accounts/new_account.py:33
+msgid "IgnoreAccountMessage"
+msgstr ""
+"Jeżeli to nie Ty założyłeś konto w naszym sklepie – zignoruj tą wiadomość."
+
+#: models/accounts/reset_password.py:24
+msgid "WelcomePasswdMessage"
+msgstr ""
+"Witaj, otrzymaliśmy żądanie zmiany hasła dla Twojego konta. Jeśli zażądałeś "
+"tej zmiany, ustaw swoje hasło tutaj."
+
+#: models/accounts/reset_password.py:25
+msgid "SetPasswdMessage"
+msgstr "Ustaw nowe hasło"
+
+#: models/accounts/reset_password.py:26
+msgid "IgnorePasswdMessage"
+msgstr ""
+"Jeśli nie chcesz zmieniać hasła, możesz zignorować ten komunikat i hasło "
+"pozostanie niezmienione."
+
+#: models/allegro/virtual_product.py:34 models/checkout/virtual_product.py:34
+#| msgid "WelcomePasswdMessage"
+msgid "WelcomeOrderMessage"
+msgstr ""
+"Witaj, "
+
+#: models/allegro/virtual_product.py:35 models/checkout/virtual_product.py:35
+msgid "ThankYouOrderMessage"
+msgstr "Produkty dla twojego zamówienia"
+
+#: models/allegro/virtual_product.py:41 models/checkout/virtual_product.py:41
+msgid "Products"
+msgstr "Produkty"
+
+#: models/allegro/virtual_product.py:42 models/checkout/virtual_product.py:42
+msgid "Instructions"
+msgstr "Instrukcje"
+
+#: models/allegro/virtual_product.py:43 models/checkout/virtual_product.py:43
+#| msgid "IgnorePasswdMessage"
+msgid "IgnoreOrderMessage"
+msgstr ""
+"Jeśli to nie twoje zamówienie, zignoruj tego maila."
+
+#: models/loyalty/coupon_confirmation.py:27
+msgid "WelcomeLoyaltyMessage"
+msgstr "Witaj"
+
+#: models/loyalty/coupon_confirmation.py:32
+msgid "ThankYouLoyaltyMessage"
+msgstr "dziękujemy za skorzystanie z kuponu"
+
+#: models/loyalty/coupon_confirmation.py:33
+msgid "ConfirmCouponMessage"
+msgstr "Oto Twój kupon promocyjny"
+
+#: models/loyalty/coupon_confirmation.py:34
+msgid "CouponButtonMessage"
+msgstr "Odbierz kupon"
+
+#: models/loyalty/coupon_confirmation.py:35
+msgid "CouponIgnoreMessage"
+msgstr ""
+"Jeżeli to nie Ty jesteś odpowiedzialny za wykorzystanie kupon – zignoruj tą "
+"wiadomość"
+
+#: models/returns/return_confirmation.py:31
+#| msgid "WelcomeAccountMessage"
+msgid "WelcomeReturnMessage"
+msgstr "Witaj"
+
+#: models/returns/return_confirmation.py:32
+msgid "ReturnMessage1"
+msgstr "Otrzymaliśmy twoje zgłoszenie numer:"
+
+#: models/returns/return_confirmation.py:33
+msgid "ReturnMessage2"
+msgstr ""
+"dotyczące chęci zwrotu produktów zakupionych w naszym sklepie z zamówienia "
+"numer"
+
+#: models/returns/return_confirmation.py:43
+msgid "Comment"
+msgstr "Komentarz do zwrotu:"
+
+#: models/returns/return_confirmation.py:44
+msgid "PrintMessage"
+msgstr "Wydrukuj wniosek i dołącz go do paczki ze zwracanym towarem."
+
+#: models/returns/return_confirmation.py:45
+msgid "ReturnMessage3"
+msgstr ""
+"Jeżeli wybrałeś sposób zwrotu towaru \"Proszę o zlecenie odbioru\" - "
+"skontaktujemy się z Tobą w osobnej wiadomości."
+
+#: service/accounts/new_account.py:21
+msgid "Signup Confirmation"
+msgstr "Potwierdzenie rejestracji"
+
+#: service/accounts/reset_password.py:21
+msgid "Password Reset Confirmation"
+msgstr "Potwierdzenie resetu hasła"
+
+#: service/allegro/virtual_product.py:34
+#| msgid "Order Complete"
+msgid "Allegro Order Complete"
+msgstr "Zamówienie zrealizowane"
+
+#: service/checkout/virtual_product.py:34
+msgid "Order Complete"
+msgstr "Zamówienie zrealizowane"
+
+#: service/loyalty/coupon_confirmation.py:23
+msgid "Coupon Confirmation"
+msgstr "Odbiór Kuponu"
+
+#: service/returns/return_confirmation.py:24
+msgid "Return Confirmation"
+msgstr "Potwierdzenie zwrotu"
+
+#: templates/base/footer.html:7
+msgid "FooterSignatureCopy1"
+msgstr "Pozdrawiamy,"
+
+#: templates/base/footer.html:8
+msgid "FooterSignatureCopy2"
+msgstr "Ekipa"
+
+#: templates/base/footer.html:18
+msgid "FooterSocialsCopy"
+msgstr "Odwiedź nas na:"
+
+#: templates/base/footer.html:27
+msgid "FooterAutomaticCopy"
+msgstr "To jest wiadomość automatyczna. Prosimy na nią nie odpowiadać."
+
+#: templates/base/header.html:11
+msgid "HeaderQuestion"
+msgstr "Masz pytania? Napisz na"
+
+#: templates/base/header.html:17
+msgid "DownloadImages"
+msgstr "Pobierz grafikę, aby zobaczyć całą treść wiadomości"
+
+#: templates/django_returns/email/default_return.html:114
+#: templates/django_returns/email/default_return.txt:11
+msgid "AddressMessage"
+msgstr "Adres dostawy"
+
+#~ msgid "ConfirmButtonMessage"
+#~ msgstr "Potwierdź adres e-mail"
+
+#: templates/django_contact_forms/email/booking_confirmation.html
+#: templates/django_contact_forms/email/booking_confirmation.txt
+msgid "Your booking is confirmed"
+msgstr "Twoja rezerwacja jest potwierdzona"
+
+#: templates/django_contact_forms/email/booking_confirmation.html
+#: templates/django_contact_forms/email/booking_confirmation.txt
+msgid "Hi {{ name }},"
+msgstr "Cześć {{ name }},"
+
+#: templates/django_contact_forms/email/booking_confirmation.html
+#: templates/django_contact_forms/email/booking_confirmation.txt
+msgid "Hi,"
+msgstr "Cześć,"
+
+#: templates/django_contact_forms/email/booking_confirmation.html
+#: templates/django_contact_forms/email/booking_confirmation.txt
+msgid "We've reserved your slot. Details below."
+msgstr "Zarezerwowaliśmy Twój termin. Szczegóły poniżej."
+
+#: templates/django_contact_forms/email/booking_confirmation.html
+#: templates/django_contact_forms/email/booking_confirmation.txt
+#: templates/django_contact_forms/email/booking_admin_notification.html
+#: templates/django_contact_forms/email/booking_admin_notification.txt
+msgid "Date & time"
+msgstr "Data i godzina"
+
+#: templates/django_contact_forms/email/booking_confirmation.html
+#: templates/django_contact_forms/email/booking_confirmation.txt
+#: templates/django_contact_forms/email/booking_admin_notification.html
+#: templates/django_contact_forms/email/booking_admin_notification.txt
+#: templates/django_contact_forms/email/contact_form_submission.html
+#: templates/django_contact_forms/email/contact_form_submission.txt
+msgid "Email"
+msgstr "E-mail"
+
+#: templates/django_contact_forms/email/booking_confirmation.html
+#: templates/django_contact_forms/email/booking_confirmation.txt
+#: templates/django_contact_forms/email/booking_admin_notification.html
+#: templates/django_contact_forms/email/booking_admin_notification.txt
+msgid "Phone"
+msgstr "Telefon"
+
+#: templates/django_contact_forms/email/booking_confirmation.html
+#: templates/django_contact_forms/email/booking_confirmation.txt
+#: templates/django_contact_forms/email/booking_admin_notification.html
+#: templates/django_contact_forms/email/booking_admin_notification.txt
+msgid "Company"
+msgstr "Firma"
+
+#: templates/django_contact_forms/email/booking_confirmation.html
+#: templates/django_contact_forms/email/booking_confirmation.txt
+#: templates/django_contact_forms/email/booking_admin_notification.html
+#: templates/django_contact_forms/email/booking_admin_notification.txt
+msgid "Message"
+msgstr "Wiadomość"
+
+#: templates/django_contact_forms/email/booking_confirmation.html
+#: templates/django_contact_forms/email/booking_confirmation.txt
+#: templates/django_contact_forms/email/booking_admin_notification.html
+#: templates/django_contact_forms/email/booking_admin_notification.txt
+msgid "Video call"
+msgstr "Rozmowa wideo"
+
+#: templates/django_contact_forms/email/booking_confirmation.html
+#: templates/django_contact_forms/email/booking_confirmation.txt
+msgid "If the time no longer works for you, just reply to this email and we'll reschedule."
+msgstr "Jeśli termin już Ci nie pasuje, odpisz na tego maila — przełożymy spotkanie."
+
+#: templates/django_contact_forms/email/booking_admin_notification.html
+#: templates/django_contact_forms/email/booking_admin_notification.txt
+msgid "New booking"
+msgstr "Nowa rezerwacja"
+
+#: templates/django_contact_forms/email/booking_admin_notification.html
+#: templates/django_contact_forms/email/booking_admin_notification.txt
+msgid "A new booking has been made on your site."
+msgstr "Na Twojej stronie pojawiła się nowa rezerwacja."
+
+#: templates/django_contact_forms/email/booking_admin_notification.html
+#: templates/django_contact_forms/email/booking_admin_notification.txt
+msgid "Name"
+msgstr "Imię i nazwisko"
+
+#: templates/django_contact_forms/email/contact_form_submission.html
+#: templates/django_contact_forms/email/contact_form_submission.txt
+msgid "New contact form submission"
+msgstr "Nowe zgłoszenie z formularza"
+
+#: templates/django_contact_forms/email/contact_form_submission.html
+#: templates/django_contact_forms/email/contact_form_submission.txt
+msgid "Type"
+msgstr "Typ"
+
+#: templates/django_contact_forms/email/contact_form_submission.html
+#: templates/django_contact_forms/email/contact_form_submission.txt
+msgid "Form"
+msgstr "Formularz"
+
+#: templates/django_contact_forms/email/contact_form_submission.html
+#: templates/django_contact_forms/email/contact_form_submission.txt
+msgid "Code"
+msgstr "Kod"
+
+#: templates/django_contact_forms/email/contact_form_submission.html
+#: templates/django_contact_forms/email/contact_form_submission.txt
+msgid "Body"
+msgstr "Treść"
+
+#: templates/django_contact_forms/email/contact_form_client_copy.html
+#: templates/django_contact_forms/email/contact_form_client_copy.txt
+msgid "Thank you for contacting us"
+msgstr "Dziękujemy za kontakt"
+
+#: templates/django_contact_forms/email/contact_form_client_copy.html
+#: templates/django_contact_forms/email/contact_form_client_copy.txt
+msgid "We have received your message and will get back to you soon. Below is a copy for your records."
+msgstr "Otrzymaliśmy Twoją wiadomość i wkrótce się odezwiemy. Poniżej kopia dla Twojej dokumentacji."

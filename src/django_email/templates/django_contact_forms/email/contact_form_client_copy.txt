@@ -1,0 +1,14 @@
+{% load i18n %}
+{% if header_title %}{{ header_title }}{% else %}{% trans "Thank you for contacting us" %}{% endif %}
+
+{% if intro_copy %}{{ intro_copy }}{% else %}{% trans "We have received your message and will get back to you soon. Below is a copy for your records." %}{% endif %}
+
+{% trans "Email" %}: {{ form_email }}{% if form_type %}
+{% trans "Type" %}: {{ form_type }}{% endif %}{% if form_slug %}
+{% trans "Form" %}: {{ form_slug }}{% endif %}{% if form_code %}
+{% trans "Code" %}: {{ form_code }}{% endif %}{% if form_body %}
+
+{% trans "Body" %}:
+{{ form_body }}{% endif %}
+
+{% if closing_copy %}{{ closing_copy }}{% endif %}

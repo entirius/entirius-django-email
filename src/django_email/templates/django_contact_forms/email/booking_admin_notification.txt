@@ -1,0 +1,15 @@
+{% load i18n %}
+{% trans "New booking" %}
+
+{% if intro_copy %}{{ intro_copy }}{% else %}{% trans "A new booking has been made on your site." %}{% endif %}
+
+{% trans "Date & time" %}: {% if meeting_start %}{{ meeting_start|date:"l, j F Y" }} {{ meeting_start|date:"H:i" }} - {{ meeting_end|date:"H:i" }} ({{ timezone }}){% endif %}{% if booker_name %}
+{% trans "Name" %}: {{ booker_name }}{% endif %}
+{% trans "Email" %}: {{ booker_email }}{% if booker_phone %}
+{% trans "Phone" %}: {{ booker_phone }}{% endif %}{% if booker_company %}
+{% trans "Company" %}: {{ booker_company }}{% endif %}{% if booker_message %}
+{% trans "Message" %}: {{ booker_message }}{% endif %}{% if meet_link %}
+
+{% trans "Video call" %}: {{ meet_link }}{% endif %}
+
+{% if closing_copy %}{{ closing_copy }}{% endif %}

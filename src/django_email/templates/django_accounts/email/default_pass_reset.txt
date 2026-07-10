@@ -1,0 +1,11 @@
+{% load i18n %}
+
+{{ welcome }}
+
+{% if reset_button %}
+    {{ reset_button }}
+{% else %}
+    {{ confirmation_link }}
+{% endif %}
+
+{{ help }}

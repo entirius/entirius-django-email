@@ -1,0 +1,14 @@
+{% load i18n %}
+{% trans "New contact form submission" %}
+
+{% if intro_copy %}{{ intro_copy }}
+{% endif %}
+{% trans "Email" %}: {{ form_email }}{% if form_type %}
+{% trans "Type" %}: {{ form_type }}{% endif %}{% if form_slug %}
+{% trans "Form" %}: {{ form_slug }}{% endif %}{% if form_code %}
+{% trans "Code" %}: {{ form_code }}{% endif %}{% if form_body %}
+
+{% trans "Body" %}:
+{{ form_body }}{% endif %}
+
+{% if closing_copy %}{{ closing_copy }}{% endif %}

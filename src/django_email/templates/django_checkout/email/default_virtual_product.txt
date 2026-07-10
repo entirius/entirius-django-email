@@ -1,0 +1,18 @@
+{% load i18n %}
+{{ welcome }}
+{{ order }}
+
+{{ products }}
+{% for product in virtual_products %}
+    {{product.name}}: {{product.key}}
+{% endfor %}
+
+{% if instructions %}
+    {{ instructions }}
+    {% for instruction in instructions %}
+        {{ instruction.name }}
+        {{ instruction.content }}
+    {% endfor %}
+{% endif %}
+
+{{ help }}

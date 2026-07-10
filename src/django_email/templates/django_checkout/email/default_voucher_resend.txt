@@ -1,0 +1,12 @@
+{% load i18n %}
+{{ welcome }}
+
+{{ code_label }} {{ code }}{% if pin %}
+{{ pin_label }} {{ pin }}{% endif %}
+
+{{ balance_label }} {{ balance }} {{ currency }}
+{{ expires_label }} {{ expires_at|date:"Y-m-d H:i" }}
+
+{{ instructions_copy }}
+
+{{ help }}

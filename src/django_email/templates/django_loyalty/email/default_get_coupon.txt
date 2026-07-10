@@ -1,0 +1,15 @@
+{% load i18n %}
+
+{{ welcome }}
+
+{{ thank_you }}
+
+{{ coupon_copy }}: {{loyalty_coupon}}
+
+{% if coupon_button %}
+    {{ coupon_button }}
+{% else %}
+    {{ confirmation_link }}
+{% endif %}
+
+{{ help }}

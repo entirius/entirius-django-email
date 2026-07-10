@@ -1,0 +1,14 @@
+{% load i18n %}
+
+{{ welcome }}
+
+{{ return_copy }}
+
+{{ comment_copy }}: {{ comment }}
+
+{{ print_copy }}
+
+{% trans 'AddressMessage' %}: {{ shipping_address }}
+
+{{ help }}
+

@@ -1,0 +1,28 @@
+{% load i18n %}
+
+<table align="center" cellspacing="0" cellpadding="0" border="0" role="presentation" width="100%" bgcolor="{{main_bgc}}" style="background-color:{{main_bgc}};">
+  <tbody>
+    <tr>
+      <td align="center" style="padding-top: 24px;">
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 600px; margin: 0 auto;">
+          <tbody>
+            <tr>
+              <td align="left" valign="middle" bgcolor="{{main_bgc}}" style="background-color: {{main_bgc}}; padding: 0 16px 16px 16px;">
+                {% if logo_url %}
+                  <img src="{{ logo_url }}" width="{{ logo_max_width|default:"100" }}" alt="{{ shop_name|default:"" }}" style="width: 100%; max-width: {{ logo_max_width|default:"100" }}px; height: auto; display: block; color:{{brand_text_clr}};">
+                {% else %}
+                  <span style="font-size: 20px; font-weight: bold; color: {{brand_text_clr}}; font-family: {{font_family|default:"'Inter', sans-serif"}};">{{ shop_name|default:"" }}</span>
+                {% endif %}
+              </td>
+              <td align="right" valign="middle" bgcolor="{{main_bgc}}" style="background-color: {{main_bgc}}; padding: 0 16px 16px 16px;">
+                {% if header_mail %}
+                <a href="mailto:{{header_mail}}" style="color:{{brand_text_clr}}; text-decoration: none; font-size: 12px; font-family: {{font_family|default:"'Inter', sans-serif"}};">{{header_mail}}</a>
+                {% endif %}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
