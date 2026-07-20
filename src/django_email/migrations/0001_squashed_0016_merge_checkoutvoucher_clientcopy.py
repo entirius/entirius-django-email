@@ -31,6 +31,9 @@ class Migration(migrations.Migration):
         ("django_email", "0015_checkoutvoucher"),
         ("django_email", "0015_merge_checkoutinvoice_contactformsclientcopy"),
         ("django_email", "0016_merge_checkoutvoucher_clientcopy"),
+        # fenix 3.1.1 leaf: pure merge (no operations), both deps already replaced above —
+        # covers the true fenix chain end so cutover from a fenix DB is a clean no-op.
+        ("django_email", "0017_merge_channel_bcc_checkoutvoucher_clientcopy"),
     ]
 
     # Data op from the old 0009 (Channel -> LangChannelConfig backfill) is omitted:
