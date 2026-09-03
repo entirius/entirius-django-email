@@ -8,6 +8,16 @@ from django_email.models.contact_forms.submission_facts import SubmissionFactsEm
 
 
 class ContactFormsSubmission(SubmissionFactsEmail):
+    subject = models.CharField(
+        max_length=256,
+        blank=True,
+        default="",
+        help_text=(
+            "Email subject. Put <contact_form_id> in the text to have the submission id "
+            "substituted there — that is what gives every notification its own mail "
+            "thread instead of stacking them in one. Leave the token out and no id is added."
+        ),
+    )
     header_title = models.TextField(
         blank=True,
         default="",
