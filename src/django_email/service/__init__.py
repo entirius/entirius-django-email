@@ -8,6 +8,7 @@ from process_logger import ProcessLogger, ProcessLoggerMixin
 from django_email.domain import EmailDomain
 from django_email.models import Channel
 from django_email.settings import EMAIL_AVAILABLE_LANGUAGES, EMAIL_DEFAULT_LANGUAGE
+from django_email.template import EmailTemplate
 
 
 class EmailService(ProcessLoggerMixin, ABC):
@@ -77,3 +78,21 @@ class EmailService(ProcessLoggerMixin, ABC):
 
     def send(self, **kwargs):
         raise NotImplementedError
+
+    def send_prerendered(self, email: list[str], *, subject: str, html_message: str, message: str) -> None:
+        """Send an already-rendered body wrapped in the standard email layout.
+
+        The body must be rendered AND sanitized by the caller. It is injected into
+        base/prerendered_body.html — the same skeleton (base/header + base/footer +
+        channel variables) every other email uses — so custom-templated mails keep the
+        shop's header and footer. Channel wiring from __init__ (from-name/from-email,
+        bcc, language) applies as usual. `message` is the mandatory text/plain
+        alternative.
+        """
+        context = {"prerendered_body": html_message}
+        context.update(self.channel.variables_as_dict(self.language))
+        if self.model:
+            context.update(self.model.variables_as_dict())
+        context["subject"] = subject  # caller's subject wins over channel/model vars
+        wrapped = EmailTemplate(template="base/prerendered_body", context=context).render_html()
+        self.domain.send_email(subject=subject, message=message, recipient_list=email, html_message=wrapped)
