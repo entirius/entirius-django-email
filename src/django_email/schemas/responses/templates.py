@@ -185,7 +185,11 @@ class ContactFormsSubmissionResponse(BaseModel):
     pk: int = Field(description="Primary key", examples=[1])
     channel_id: int = Field(description="Channel FK", examples=[1])
     language_id: int | None = Field(None, description="Language FK", examples=[1])
-    subject: NullableStr = Field(None, description="Email subject line", examples=["Nowe zgłoszenie z formularza"])
+    subject: NullableStr = Field(
+        None,
+        description="Email subject line; <contact_form_id> is substituted with the submission id",
+        examples=["New contact form submission #<contact_form_id>"],
+    )
     header_title: NullableStr = Field(None, description="H2 heading", examples=["Nowe zgłoszenie z formularza"])
     intro_copy: NullableStr = Field(None, description="Paragraph rendered above the submission facts")
     label_email: NullableStr = Field(None, description="Table label for the email row", examples=["Adres e-mail"])
