@@ -44,6 +44,17 @@ If the connection setup fails (wrong host, bad credentials), the error is logged
 
 `EMAIL_USE_TLS` and `EMAIL_USE_SSL` are mutually exclusive — set one to `True`, the other to `False`.
 
+An entry must carry all six connection keys, with a non-empty `EMAIL_HOST` and `EMAIL_PORT` (an unset env var
+arrives as `""`); an incomplete one falls back silently. Check it before the first send:
+
+```bash
+python manage.py check --tag email.smtp                      # incomplete entries (settings only)
+python manage.py check --deploy --tag entirius_probe         # one SMTP login per complete entry
+```
+
+Some consumers have no fallback: django-communicator sends nothing for a channel without its entry and reports
+that as `communicator.smtp`.
+
 ## Development Setup (Mailpit)
 
 Use Mailpit as a local SMTP server to capture all outgoing emails without delivering them.
