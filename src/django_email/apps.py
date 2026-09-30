@@ -10,3 +10,6 @@ class DjangoEmailConfig(AppConfig):
     name = "django_email"
     verbose_name = "Email"
     is_volkanos = True
+
+    def ready(self) -> None:
+        from django_email import checks  # noqa: F401 — registers the configuration health checks

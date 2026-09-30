@@ -2,6 +2,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
+import logging
 from smtplib import SMTPException, SMTPServerDisconnected
 
 from django.core import mail
@@ -10,6 +11,8 @@ from django_utils.api.exceptions import BadRequest
 from process_logger import ProcessLoggerMixin
 
 from django_email import settings
+
+_log = logging.getLogger(__name__)
 
 
 class EmailDomain(ProcessLoggerMixin):
@@ -101,7 +104,10 @@ class EmailDomain(ProcessLoggerMixin):
                         use_tls=channel_smtp_config["EMAIL_USE_TLS"],
                     )
                 except Exception as e:
-                    self.logger.exception(f"Error getting channel {self.channel_idx} SMTP settings: {e}")
+                    # Callers outside EmailService (communicator, notifications) never call set_logger.
+                    (getattr(self, "logger", None) or _log).exception(
+                        f"Error getting channel {self.channel_idx} SMTP settings: {e}"
+                    )
                     return None
         return None
 

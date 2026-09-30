@@ -1,6 +1,6 @@
 [project]
 name = "entirius-django-email"
-version = "4.0.1"
+version = "4.1.0"
 description = "Transactional email Django module for Volkanos — branded templates per channel and language"
 authors = [{ name = "Entirius" }]
 readme = "README.md"
