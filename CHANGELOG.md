@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 4.1.0 — 2026-09-30
 
 - **Fix:** `EmailDomain` built without `set_logger` (django-communicator, django-notifications) no longer raises
   `AttributeError` on an incomplete `EMAIL_SMTP_CONFIGURATION_CHANNELS` entry — it logs through the module logger
