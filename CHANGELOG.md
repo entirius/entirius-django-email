@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased
+
+- **Fix:** `EmailDomain` built without `set_logger` (django-communicator, django-notifications) no longer raises
+  `AttributeError` on an incomplete `EMAIL_SMTP_CONFIGURATION_CHANNELS` entry — it logs through the module logger
+  and reports no channel connection.
+- **SMTP health.** `django_email.services.smtp_status`: `smtp_status(channel_idx)` (settings only) and
+  `smtp_probe(channel_idx)` (one SMTP login, cached 60 s, never raises → `configured | unconfigured |
+  unreachable | auth_failed`). System checks `email.smtp`: an incomplete `EMAIL_SMTP_CONFIGURATION_CHANNELS`
+  entry — a key missing, or an empty `EMAIL_HOST` / `EMAIL_PORT` (tag `entirius_config`), and the login probe (tag `entirius_probe`, deploy-only). Shown by
+  django-munin's `health/` endpoint.
+
 ## 4.0.1 — 2026-07-22
 
 - Extend the squash `replaces` list to cover a late upstream leaf migration,
