@@ -21,6 +21,8 @@ with an admin API and ready-made email services for platform flows.
 - Git flow: `master` (production) + `develop` (integration); changes land via PR; semver tag on `master`.
 - Never rename the package / Django app_label / DB table prefix `django_email` — it is a schema contract.
 - Migrations are part of the public contract — never edit an already released migration.
+- Access: areas live on the AppConfig (`access_areas`, `access_route_rules`), every admin view carries
+  `access_area`; a new admin route without one fails `tests/test_access_ownership.py`.
 - Default: do not commit — git is the user's call.
 
 ## Architecture
