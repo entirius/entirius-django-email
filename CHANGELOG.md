@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unreleased]
+
+- Access: the module declares its own access areas on its AppConfig and its admin views (copied from the
+  entirius-django-access defaults; behaviour unchanged).
+
 ## 4.1.0 — 2026-09-30
 
 - **Fix:** `EmailDomain` built without `set_logger` (django-communicator, django-notifications) no longer raises
