@@ -10,6 +10,7 @@ description: "Email settings, SMTP configuration, template paths, Mailpit dev se
 | `EMAIL_AVAILABLE_LANGUAGES` | `["en", "pl"]` (from `AVAILABLE_LANGUAGES`) | Languages the email service will accept. Requests for unlisted languages fall back to `EMAIL_DEFAULT_LANGUAGE`. |
 | `EMAIL_DEFAULT_LANGUAGE` | `"pl"` | Fallback language when the requested language is not in `EMAIL_AVAILABLE_LANGUAGES`. |
 | `DEFAULT_FROM_EMAIL` | `None` (Django default) | Global sender address. Used when no channel-level sender is configured. |
+| `EMAIL_ADMIN_API_ENABLED` | `True` | Mounts the admin API (`api/email/v2/admin/`). `False` leaves it unmounted and never imports its DRF / pydantic / drf-spectacular dependencies. |
 | `EMAIL_SMTP_CONFIGURATION_CHANNELS` | `None` | Per-channel SMTP overrides. See below. Set to `None` in dev to disable per-channel routing and route everything through Mailpit. |
 | `NEW_ACCOUNT_EMAIL_TEMPLATE_PATH` | `"django_accounts/email/default_new_account"` | Template path for new account emails. |
 | `RESET_PASSWORD_EMAIL_TEMPLATE_PATH` | `"django_accounts/email/default_pass_reset"` | Template path for password reset emails. |
@@ -71,8 +72,6 @@ EMAIL_SMTP_CONFIGURATION_CHANNELS = None  # Disable per-channel routing in dev
 ```
 
 Mailpit web UI is at `http://localhost:8025`. All emails sent by Django (regardless of channel) appear there.
-
-In entirius-docker, Mailpit runs as the `mailpit` service. The `settings_local.py` injected during `make dev` configures Django to use it automatically.
 
 ## Template Paths
 
