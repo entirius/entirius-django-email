@@ -49,12 +49,19 @@
                 <td style="border: 1px solid {{brand_text_clr}}; font-size: 14px;">{{ form_code }}</td>
               </tr>
               {% endif %}
+              {% for row in form_body_rows %}
+              <tr>
+                <th align="left" bgcolor="{{main_bgc}}" style="font-size: 14px; background-color: {{main_bgc}}; border: 1px solid {{brand_text_clr}}; vertical-align: top;">{% if row.label %}{{ row.label }}{% elif label_body %}{{ label_body }}{% else %}{% trans "Body" %}{% endif %}</th>
+                <td style="border: 1px solid {{brand_text_clr}}; font-size: 14px; word-break: break-word;">{{ row.value|linebreaksbr }}</td>
+              </tr>
+              {% empty %}
               {% if form_body %}
               <tr>
                 <th align="left" bgcolor="{{main_bgc}}" style="font-size: 14px; background-color: {{main_bgc}}; border: 1px solid {{brand_text_clr}}; vertical-align: top;">{% if label_body %}{{ label_body }}{% else %}{% trans "Body" %}{% endif %}</th>
                 <td style="border: 1px solid {{brand_text_clr}}; font-size: 14px;"><pre style="margin:0; white-space: pre-wrap; word-break: break-word;">{{ form_body }}</pre></td>
               </tr>
               {% endif %}
+              {% endfor %}
             </table>
 
             {% if closing_copy %}

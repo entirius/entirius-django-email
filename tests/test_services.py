@@ -420,3 +420,74 @@ class TestBookingConfirmationGreetingResolver:
         ctx = svc.prepare_context({"booker_name": "Anna"})
 
         assert ctx["greeting_template"] == "Witaj!"
+
+
+@pytest.mark.django_db
+class TestContactFormSubmissionSubjectFormId:
+    """Service-level test: <contact_form_id> in the subject expands to the submission id.
+
+    A constant subject is what makes Gmail collapse every submission into one
+    conversation; the id is what keeps them apart. The placeholder is the only
+    trigger — an operator who leaves it out keeps the old behaviour.
+    """
+
+    def _make_service(self, idx: str, subject: str | None = None):
+        from django_email.service.contact_forms.contact_form_submission import ContactFormSubmissionEmail
+
+        # EmailService requires the Language record for the active language to exist.
+        language = _get_or_create_language("en")
+        channel = ChannelFactory(idx=idx)
+        if subject is not None:
+            ContactFormsSubmissionFactory(channel=channel, language=language, subject=subject)
+        return ContactFormSubmissionEmail(exception_type=Exception, language="en", channel_idx=idx)
+
+    def test_shipped_default_subject_carries_the_id(self):
+        # No operator row -> get_subject() default, which ships with the placeholder.
+        service = self._make_service("form-id-default")
+
+        ctx = service.prepare_context({"form_id": "482910375562"})
+
+        assert ctx["subject"].endswith(" #482910375562")
+        assert "<contact_form_id>" not in ctx["subject"]
+
+    def test_placeholder_picks_the_position(self):
+        service = self._make_service("form-id-placeholder", subject="Submission <contact_form_id> from the form")
+
+        ctx = service.prepare_context({"form_id": "482910375562"})
+
+        assert ctx["subject"] == "Submission 482910375562 from the form"
+
+    def test_operator_subject_without_placeholder_is_left_alone(self):
+        service = self._make_service("form-id-optout", subject="New submission")
+
+        ctx = service.prepare_context({"form_id": "482910375562"})
+
+        assert ctx["subject"] == "New submission"
+
+    def test_two_submissions_get_distinct_subjects(self):
+        service = self._make_service("form-id-distinct")
+
+        first = service.prepare_context({"form_id": "111111111111"})["subject"]
+        second = service.prepare_context({"form_id": "222222222222"})["subject"]
+
+        assert first != second
+
+    def test_missing_form_id_drops_the_placeholder(self):
+        # An older django-contact-forms sends no form_id; the token must not leak to the mailbox.
+        service = self._make_service("form-id-absent", subject="New submission <contact_form_id>")
+
+        ctx = service.prepare_context({})
+
+        assert ctx["subject"] == "New submission"
+
+    def test_sent_message_carries_the_id_in_the_subject(self, settings):
+        """End-to-end through send(): the header the mailbox actually sees."""
+        from django.core import mail
+
+        settings.EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
+        mail.outbox = []
+        service = self._make_service("form-id-outbox", subject="New submission #<contact_form_id>")
+
+        service.send(email=["contact@shop.example"], submission_context={"form_id": "482910375562"})
+
+        assert mail.outbox[0].subject == "New submission #482910375562"
