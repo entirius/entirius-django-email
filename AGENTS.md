@@ -1,7 +1,6 @@
 # AGENTS.md
 
-Transactional email module for Volkanos — distribution `entirius-django-email`,
-Django app `django_email`. Branded, per-channel and per-language email templates
+`entirius-django-email` (Django app `django_email`) — transactional email module of Entirius. Branded, per-channel and per-language email templates
 with an admin API and ready-made email services for platform flows.
 
 ## Commands
@@ -24,6 +23,7 @@ with an admin API and ready-made email services for platform flows.
 - Access: areas live on the AppConfig (`access_areas`, `access_route_rules`), every admin view carries
   `access_area`; a new admin route without one fails `tests/test_access_ownership.py`.
 - Default: do not commit — git is the user's call.
+- No AI attribution in commits or PR descriptions.
 
 ## Architecture
 
@@ -38,6 +38,30 @@ with an admin API and ready-made email services for platform flows.
 - `templates/` + `__email_brand.example/` — base templates; brand overrides resolve through
   project-level template dirs (`APP_DIRS` precedence).
 - `language.py` — `resolve_email_language()` fallback chain (requested → channel default).
+- `checks.py` — configuration health checks, registered in `AppConfig.ready()`.
+- `management/commands/test-email.py` — sends a test email for a channel.
+
+| Topic | Where |
+|---|---|
+| Overview, email types, language and sender resolution | `docs/index.md` |
+| Settings, per-channel SMTP, template paths, test command | `docs/configuration.md` |
+| Admin API endpoints and examples | `docs/admin-api.md` |
+| Brand template overrides | `docs/template-theming.md`, `__email_brand.example/README.md` |
+| CMS email panel | `docs/cms-panel.md` |
+| ERD config and generated diagrams | `docs/erd-config.yaml`, `docs/erd.md` |
+
+## Settings
+
+Read in `src/django_email/settings.py`; the `*_EMAIL_TEMPLATE_PATH` settings (one per email type) are listed in
+`docs/configuration.md`.
+
+| Setting | Default | Description |
+|---|---|---|
+| `AVAILABLE_LANGUAGES` | `["en", "pl"]` | Languages the email services accept (read as `EMAIL_AVAILABLE_LANGUAGES`) |
+| `EMAIL_DEFAULT_LANGUAGE` | `"pl"` | Fallback when the requested language is not available |
+| `DEFAULT_FROM_EMAIL` | `None` | Global sender, used when the channel sets none |
+| `EMAIL_ADMIN_API_ENABLED` | `True` | `False` leaves the admin API unmounted and its DRF / pydantic imports untouched |
+| `EMAIL_SMTP_CONFIGURATION_CHANNELS` | `None` | Per-channel SMTP settings keyed by channel idx |
 
 ## Gotchas
 

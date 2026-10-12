@@ -1,7 +1,21 @@
 [project]
 name = "entirius-django-email"
 version = "4.1.0"
-description = "Transactional email Django module for Volkanos — branded templates per channel and language"
+description = "Transactional email for Entirius: branded templates per sales channel and language, with an admin API"
+keywords = ["django", "email", "transactional-email", "templates", "ecommerce", "entirius"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Django",
+    "Framework :: Django :: 5.2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Communications :: Email",
+]
 authors = [{ name = "Entirius" }]
 readme = "README.md"
 requires-python = ">=3.11"
@@ -22,7 +36,11 @@ dev  = ["ruff", "pre-commit"]
 test = ["pytest", "pytest-django", "factory-boy"]
 
 [project.urls]
+Homepage = "https://docs.entirius.com/"
+Documentation = "https://github.com/entirius/entirius-django-email/tree/develop/docs"
 Repository = "https://github.com/entirius/entirius-django-email"
+Changelog = "https://github.com/entirius/entirius-django-email/blob/develop/CHANGELOG.md"
+Issues = "https://github.com/entirius/entirius-django-email/issues"
 
 [build-system]
 requires = ["hatchling"]
