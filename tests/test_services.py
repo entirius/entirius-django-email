@@ -480,6 +480,20 @@ class TestContactFormSubmissionSubjectFormId:
 
         assert ctx["subject"] == "New submission"
 
+    def test_missing_form_id_leaves_no_dangling_hash_in_the_default_subject(self):
+        service = self._make_service("form-id-absent-default")
+
+        ctx = service.prepare_context({})
+
+        assert ctx["subject"] == "New contact form submission"
+
+    def test_missing_form_id_keeps_the_text_around_the_placeholder(self):
+        service = self._make_service("form-id-absent-mid", subject="Submission #<contact_form_id> from the form")
+
+        ctx = service.prepare_context({})
+
+        assert ctx["subject"] == "Submission from the form"
+
     def test_sent_message_carries_the_id_in_the_subject(self, settings):
         """End-to-end through send(): the header the mailbox actually sees."""
         from django.core import mail
