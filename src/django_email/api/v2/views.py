@@ -111,6 +111,7 @@ def _build_template_response(instance: object, email_type: str) -> dict:
 class ChannelViewSet(viewsets.ViewSet):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAdminUser]
+    access_area = "email.templates"
 
     @extend_schema(
         summary="List email channels",
@@ -204,6 +205,7 @@ class ChannelViewSet(viewsets.ViewSet):
 class LangChannelConfigViewSet(viewsets.ViewSet):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAdminUser]
+    access_area = "email.templates"
 
     @extend_schema(
         summary="List language configs for channel",
@@ -294,6 +296,7 @@ class LangChannelConfigViewSet(viewsets.ViewSet):
 class EmailTemplateViewSet(viewsets.ViewSet):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAdminUser]
+    access_area = "email.templates"
 
     @extend_schema(
         summary="List templates by type",
