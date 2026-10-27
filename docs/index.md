@@ -73,6 +73,12 @@ Per-client template overrides live in `__email_brand.{client}/` inside the servi
 
 See [Template Theming](./template-theming/) for client setup instructions.
 
+## Pre-rendered Bodies
+
+`EmailService.send_prerendered(email, *, subject, html_message, message)` sends a body the caller has already rendered,
+wrapped in `base/prerendered_body.html` (the shared header, footer and channel variables). The HTML is inserted with
+`|safe`: the caller must sanitise anything user-supplied in it. `message` is the text/plain part.
+
 ## CMS Panel
 
 The CMS Email panel lets operators edit template text content, sender branding, and language configs without developer access. See [CMS Panel](./cms-panel/) for panel navigation and usage.
