@@ -5,6 +5,7 @@ from django_email.admin.allegro.virtual_product import AllegroVirtualProductAdmi
 from django_email.admin.channel import ChannelAdmin
 from django_email.admin.checkout.invoice import CheckoutInvoiceAdmin
 from django_email.admin.checkout.virtual_product import CheckoutVirtualProductAdmin
+from django_email.admin.checkout.voucher import CheckoutVoucherAdmin
 from django_email.admin.contact_forms.booking_admin_notification import ContactFormsBookingAdminNotificationAdmin
 from django_email.admin.contact_forms.booking_confirmation import ContactFormsBookingConfirmationAdmin
 from django_email.admin.contact_forms.contact_form_client_copy import ContactFormsClientCopyAdmin

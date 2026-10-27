@@ -1,6 +1,6 @@
 [project]
 name = "entirius-django-email"
-version = "4.2.0"
+version = "4.3.0"
 description = "Transactional email for Entirius: branded templates per sales channel and language, with an admin API"
 keywords = ["django", "email", "transactional-email", "templates", "ecommerce", "entirius"]
 classifiers = [
