@@ -49,6 +49,16 @@ Callers in django-contact-forms and django-agreements import this helper rather 
 2. Channel-level `Channel.from_email` / `Channel.from_name`
 3. `DEFAULT_FROM_EMAIL` setting
 
+## Contact Form Submission
+
+- **Subject token.** `<contact_form_id>` in the `ContactFormsSubmission.subject` is replaced with the submission id
+  (`form_id` in the context django-contact-forms sends). The shipped default subject is
+  `New contact form submission #<contact_form_id>`, so every notification starts its own mail thread. A subject
+  without the token is sent as is. Without a `form_id` the token is dropped together with a `#` in front of it.
+  Only the admin notification reads the token; the client copy sends its subject unchanged.
+- **Body rows.** When the context carries `form_body_rows` (objects with `label` and `value`), the submission and
+  client-copy HTML templates render one table row per field; otherwise they fall back to the single `form_body` block.
+
 ## Admin API (v2)
 
 The v2 admin API exposes read and update operations for email channels, language configs, and templates. Create and delete are Django admin only.
@@ -62,6 +72,12 @@ The v2 admin API exposes read and update operations for email channels, language
 Per-client template overrides live in `__email_brand.{client}/` inside the service repo. Django's template resolution picks up overrides automatically — no settings change needed if the directory is in `TEMPLATES[0]['DIRS']`.
 
 See [Template Theming](./template-theming/) for client setup instructions.
+
+## Pre-rendered Bodies
+
+`EmailService.send_prerendered(email, *, subject, html_message, message)` sends a body the caller has already rendered,
+wrapped in `base/prerendered_body.html` (the shared header, footer and channel variables). The HTML is inserted with
+`|safe`: the caller must sanitise anything user-supplied in it. `message` is the text/plain part.
 
 ## CMS Panel
 

@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.3.0 — 2026-10-27
+
+- Contact-form submission subject (`ContactFormsSubmission.subject`) understands `<contact_form_id>`, substituted with
+  the `form_id` the caller sends, so every notification gets its own mail thread (Gmail threads by subject). The
+  shipped default subject is `New contact form submission #<contact_form_id>`; an operator-set subject without the
+  token stays as it is. A caller that sends no `form_id` gets the token (and a `#` in front of it) dropped, with a
+  warning in the log. Migration `0018` changes only the field's `help_text`; the column is unchanged.
+- The contact-form submission and client-copy templates render `form_body_rows` (a list of `label` / `value` items)
+  as one table row per field, multi-line values through `linebreaksbr`. A caller that sends only `form_body` gets the
+  old `<pre>` block. django-contact-forms 4.1.0 sends both, and `form_id`.
+- `EmailService.send_prerendered(email, *, subject, html_message, message)` sends a body the caller has already
+  rendered, wrapped in `base/prerendered_body.html` (the shared header, footer and channel variables). The HTML is
+  inserted unescaped: the caller sanitises anything user-supplied in it. `message` is the text/plain part.
+- Django admin: `CheckoutVoucher` is registered (it was the only checkout email model missing).
+- Tests cover the `EMAIL_ADMIN_API_ENABLED` URL toggle.
+
 ## 4.2.0 — 2026-10-12
 
 - Access: the module declares its own access areas on its AppConfig and its admin views (copied from the
