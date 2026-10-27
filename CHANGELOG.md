@@ -1,6 +1,6 @@
 # Changelog
 
-## 4.3.0rc1 — 2026-10-26
+## 4.3.0 — 2026-10-27
 
 - Contact-form submission subject (`ContactFormsSubmission.subject`) understands `<contact_form_id>`, substituted with
   the `form_id` the caller sends, so every notification gets its own mail thread (Gmail threads by subject). The
